@@ -49,8 +49,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          # images: ghcr.io/spack/${{ matrix.dockerfile.name }}
-          images: ghcr.io/AlmightyYakob/${{ matrix.dockerfile.name }}
+          images: ghcr.io/johnwparent/${{ matrix.dockerfile.name }}
           tags: |
             # Tag for PR
             type=ref,event=branch
