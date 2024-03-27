@@ -14,6 +14,7 @@ RUN Set-ExecutionPolicy Bypass -Scope Process -Force; `
 # Install git and python3.11
 RUN choco install -y git.install gnupg
 RUN choco install -y python --version=3.11.0
+RUN choco install file
 
 # Install spack requirements
 RUN python -m pip install --upgrade pip setuptools wheel
