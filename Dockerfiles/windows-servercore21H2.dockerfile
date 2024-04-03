@@ -47,6 +47,14 @@ RUN `
     --add Microsoft.VisualStudio.Component.VC.v141.x86.x64 `
     && del /q vs_buildtools.exe
 
+
+# download and install IntelOneAPI base toolkit (ifx) w/ msvc integration
+ENV ONEAPI_BASEKIT_URL=https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7dff44ba-e3af-4448-841c-0d616c8da6e7/w_BaseKit_p_2024.1.0.595_offline.exe
+RUN `
+    curl -SL --output oneapi_installer.exe %ONEAPI_BASEKIT_URL% `
+    && start /w oneapi_installer.exe -s --remove-extracted-files yes -a --silent --eula accept`
+    && del oneapi_installer.exe
+
 # Set env vars
 ENV NVIDIA_VISIBLE_DEVICES=all `
     NVIDIA_DRIVER_CAPABILITIES=compute,utility `
