@@ -68,7 +68,7 @@ jobs:
         # Also the `--label` is omiited, since that breaks the syntax, and for some reason the `--cache-to` argument isn't recognized
       - name: Docker Build
         # run: docker build -f Dockerfiles/${{ matrix.dockerfile.path }} --platform windows/amd64 -t ${{ steps.meta.outputs.tags }} --label ${{ steps.meta.outputs.labels }}  --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:nightly --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:main --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:latest --cache-to type=inline .
-        run: docker build -f Dockerfiles/${{ matrix.dockerfile.path }} --platform windows/amd64 -t ${{ steps.meta.outputs.tags }} --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:nightly --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:main --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:latest .
+        run: docker build -f Dockerfiles/${{ matrix.dockerfile.path }} --platform windows/amd64 -t ${{ steps.meta.outputs.tags }} --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:nightly --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:main --cache-from type=registry,ref=ghcr.io/spack/${{ matrix.dockerfile.name }}:latest --isolation hyperv .
 
       - name: Docker Push
         run: docker push ${{ steps.meta.outputs.tags }}
