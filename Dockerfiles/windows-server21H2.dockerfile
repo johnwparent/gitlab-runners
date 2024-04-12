@@ -44,9 +44,9 @@ RUN `
 
 
 # download and install IntelOneAPI base toolkit (ifx) w/ msvc integration
-ENV ONEAPI_BASEKIT_URL=https://registrationcenter-download.intel.com/akdlm/IRC_NAS/7dff44ba-e3af-4448-841c-0d616c8da6e7/w_BaseKit_p_2024.1.0.595_offline.exe
+ENV ONEAPI_FORTRAN_URL=https://registrationcenter-download.intel.com/akdlm/IRC_NAS/f6a44238-5cb6-4787-be83-2ef48bc70cba/w_fortran-compiler_p_2024.1.0.466_offline.exe
 RUN `
-    curl -SL --output oneapi_installer.exe %ONEAPI_BASEKIT_URL% `
+    curl -SL --output oneapi_installer.exe %ONEAPI_FORTRAN_URL% `
     && start /w oneapi_installer.exe -s --remove-extracted-files yes -a --silent --eula accept`
     && del oneapi_installer.exe
 
