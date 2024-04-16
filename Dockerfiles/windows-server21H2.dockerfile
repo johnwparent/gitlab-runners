@@ -57,4 +57,7 @@ ENV NVIDIA_VISIBLE_DEVICES=all `
     LANG=en_US.UTF-8 `
     LC_ALL=en_US.UTF-8
 
+# force use of 8.3filenames on image so perl can build
+RUN fsutil 8dot3name set 0
+
 ENTRYPOINT ["C:\\Spack\\BuildTools\\Common7\\Tools\\VsDevCmd.bat", "&&", "powershell.exe", "-NoLogo", "-ExecutionPolicy", "Bypass"]
